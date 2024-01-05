@@ -1,0 +1,102 @@
+---
+sidebar_position: 3
+---
+
+# List all users
+
+Retrieves a list of users. Results are paginated, by default the method returns up to 20 users.
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+## Request
+
+### Endpoint
+
+<Highlight color="#61affe">GET</Highlight> /api/users
+
+### Query Parameters
+
+- name: `string` - Fullname of the user
+- email: `string<email>` - User email address
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### Example
+
+<Tabs>
+  <TabItem value="cURL" label="cURL" default>
+    ```powershell
+    curl --request GET \
+  --url 'http://example.com/api/users?name=Meo' \
+  --header 'Authorization: Bearer meowmeowmeow' \
+  --header 'Content-Type: application/json'
+    ```
+  </TabItem>
+  <TabItem value="Node.js" label="Node.js">
+    ```js
+    const fetch = require('node-fetch');
+
+    let url = 'http://example.com/api/users?name=Meo';
+
+    let options = {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json', Authorization: 'Bearer meowmeowmeow'}
+    };
+
+    fetch(url, options)
+      .then(res => res.json())
+      .then(json => console.log(json))
+      .catch(err => console.error('error:' + err));
+    ```
+  </TabItem>
+</Tabs>
+
+## Response
+<Highlight color="#49cc90">200</Highlight> OK
+
+### Schema
+application/json
+```js
+{
+  // Array of objects or null
+  "data" : [
+    {
+      "id": "string", // User ID
+      "name": "string", // User fullname
+      "email": "string" // User email address
+    }
+  ],
+  "total": "integer"
+}
+```
+
+### Example
+
+```js
+{
+  "data" : [
+    {
+      "id": "92693c4f-c752-4f75-bd44-68dc088a5e26",
+      "name": "John78",
+      "email": "john.smith@example.com"
+    },
+    {
+      "id": "73493562-fd4b-4427-8700-bbfb56df664a",
+      "name": "Frank",
+      "email": "frank.brain@example.com"
+    }
+  ],
+  "total": 100
+}
+```

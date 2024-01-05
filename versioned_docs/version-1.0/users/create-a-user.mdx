@@ -1,0 +1,91 @@
+---
+sidebar_position: 1
+---
+
+# Create a user 
+
+Create a user for operation.
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+## Request
+
+### Endpoint
+
+<Highlight color="#49cc90">POST</Highlight> /api/users
+
+### Body
+application/json
+
+- name: `string` `min:6 characters` - User Fullname
+- email <sub>required</sub>: `string<email>` - User email address
+- password <sub>required</sub>: `string<password>` `>= 8 characters /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/` - User password, MUST contain a mix of upper and lower case letters, as well as digits
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### Example
+
+<Tabs>
+  <TabItem value="cURL" label="cURL" default>
+    ```powershell
+    curl --request POST \
+      --url http://example.com/api/users \
+      --header 'Authorization: Bearer meowmeowmeow' \
+      --header 'Content-Type: application/json' \
+      --data '{
+      "name": "John78",
+      "email": "john.smith@example.com",
+      "password": "drowssaP123"
+    }'
+    ```
+  </TabItem>
+  <TabItem value="Node.js" label="Node.js">
+     ```js
+    const fetch = require('node-fetch');
+    let url = 'http://example.com/api/users';
+    let options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', Authorization: 'Bearer meowmeowmeow'},
+      body: '{"name":"John78","email":"john.smith@example.com","password":"drowssaP123"}'
+    };
+    fetch(url, options)
+      .then(res => res.json())
+      .then(json => console.log(json))
+      .catch(err => console.error('error:' + err));
+    ```
+  </TabItem>
+</Tabs>
+
+## Response
+<Highlight color="#49cc90">201</Highlight> Created
+
+### Schema
+application/json
+```js
+{
+  "id": "string", // User ID
+  "name": "string", // User fullname
+  "email": "string" // User email address
+}
+```
+
+### Example
+
+```js
+{
+  "id": "92693c4f-c752-4f75-bd44-68dc088a5e26",
+  "name": "John78",
+  "email": "john.smith@example.com"
+}
+```
