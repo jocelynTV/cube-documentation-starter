@@ -11,12 +11,13 @@ const config: Config = {
   url: 'https://jocelyntv.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/cube-documentation-starter',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'jocelynTV', // Usually your GitHub org/user name.
-  projectName: 'cube-ant-design-dashboard', // Usually your repo name.
+  projectName: 'cube-documentation-starter', // Usually your repo name.
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

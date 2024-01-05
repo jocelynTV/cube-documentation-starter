@@ -1,6 +1,9 @@
 # Cube documentation starter
 
-An awesome Platform template to jumpstart your projects!
+An awesome documentation template to jumpstart your projects!
+
+### Demo
+Check out a [live demo](https://jocelyntv.github.io/cube-documentation-starter/).
 
 ### Installation
 
