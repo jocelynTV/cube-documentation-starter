@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksrd_documentation=self.webpackChunksrd_documentation||[]).push([[456],{6391:e=>{e.exports=JSON.parse('{"permalink":"/cube-documentation-starter/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
